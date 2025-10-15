@@ -40,3 +40,12 @@ A professional Todo REST API built with Go, featuring clean architecture, compre
 - Kubernetes cluster (optional)
 
 ### Run Locally
+1. **Clone the repository**
+```bash
+git clone https://github.com/Kanishk2604/go-todo-api.git
+cd go-todo-api
+```
+2.**Install dependencies**
+```bash
+go mod tidy
+```
