@@ -45,7 +45,62 @@ A professional Todo REST API built with Go, featuring clean architecture, compre
 git clone https://github.com/Kanishk2604/go-todo-api.git
 cd go-todo-api
 ```
-2.**Install dependencies**
+2. **Install dependencies**
 ```bash
 go mod tidy
 ```
+3. **Run the server**
+   ```bash
+   go run ./cmd/server
+   ```
+4. **Health check**
+   ```bash
+   curl http://localhost:8080/health
+   ```
+5. **Create a todo**
+   ```bash
+   curl -X POST http://localhost:8080/api/v1/todos
+   -H "Content-Type:application/json"
+   -d'{"title":"Learn Go","description":"Master Go development"}'
+   ```
+6. **Get all todos
+   ```bash
+   curl http://localhost:8080/api/v1/todos
+   ```
+   
+## Testing
+
+Run the comprehensive test suite:
+```bash
+go test -v ./tests/...
+```
+
+Features table-driven tests covering:
+- Valid input validation
+- Error handling scenarios
+- HTTP status code verification
+- JSON response parsing
+
+## Docker Deployment
+
+1. **Build Docker image**
+   ```bash
+   docker build -t go-todo-api:latest .
+   ```
+2. **Run container**
+   ```bash
+   docker run -p 8080:8080 go-todo-api:latest
+   ```
+   
+## Kubernetes Deployment
+
+1. **Deploy to Kubernetes**
+   ```bash
+   kubectl apply -f k8s/deployment.yaml
+   ```
+2. **Check status**
+   ```bash
+   kubectl get pods -l app=go-todo-api
+   kubectl get services -l app=go-todo-api
+   ```
+   
